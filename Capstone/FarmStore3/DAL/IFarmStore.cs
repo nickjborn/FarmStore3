@@ -13,6 +13,9 @@ namespace FarmStore3.DAL
         bool AddProduct(FarmDALModel dalModel);
 
         bool UpdateProduct(int ProduceId, Products updatedProduct);
+
+        bool DeleteTheProduct(FarmDALModel dalModel);
+
     }
 
     public class FarmStore : IFarmStore
@@ -65,6 +68,18 @@ namespace FarmStore3.DAL
             {
                 var result = connection.Execute(sql, updatedProduct);
                 return true;            
+            }
+        }
+
+        public bool DeleteTheProduct(FarmDALModel dalModel)
+        {
+
+            var sql = @"Delete from Produce where produceID = @ProduceID";
+
+            using (var connection = new SqlConnection(_config.ConnectionString))
+            {
+                var result = connection.Execute(sql, new { ProduceID = $"%{dalModel.ProduceID}%" });
+                return true;
             }
         }
 

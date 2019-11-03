@@ -19,11 +19,28 @@ namespace FarmStore3.Controllers
             return View(result);
         }
         public IActionResult AddProduce(Products model)
+
         {
             var addProduce = _FarmService.AddProduct(model);
             var result = _FarmService.GetProducts();
             return View("Produce", result);
 
+        }
+
+
+        public IActionResult FarmStore()
+        {
+            return View();
+        }
+
+        public IActionResult Cart()
+        {
+            return View();
+        }
+
+        public IActionResult DeletProduce()
+        {
+            return View();
         }
 
         public IActionResult UpdateProduce(int id, Products produce)
