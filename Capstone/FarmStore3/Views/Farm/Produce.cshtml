@@ -1,7 +1,31 @@
-﻿
+﻿@model FarmStore3.Models.ProductViewModel
 @{
     ViewData["Title"] = "Produce";
 }
 
 <h1>Produce</h1>
 
+
+
+
+<div>
+    <table>
+        <thead>
+            <tr></tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
+                <tr>
+                    <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.ProduceID">@product.ProduceID</a></td>
+                    <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.ProduceName">@product.ProduceName</a></td>
+                    <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.StockQuantity">@product.StockQuantity</a></td>
+                    <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.UnitPrice">@product.UnitPrice</a></td>
+                    <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.InSeason">@product.InSeason</a></td>
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+</div>

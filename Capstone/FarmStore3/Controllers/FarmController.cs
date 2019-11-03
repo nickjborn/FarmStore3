@@ -1,10 +1,6 @@
 ﻿using FarmStore3.FarmServices;
 using FarmStore3.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FarmStore3.Controllers
 {
@@ -12,13 +8,22 @@ namespace FarmStore3.Controllers
     {
         private readonly IFarmService _FarmService;
 
+        public FarmController(IFarmService farmService)
+        {
+            _FarmService = farmService;
+        }
+
         public IActionResult Produce()
         {
-            return View();
+            var result = _FarmService.GetProducts();
+            return View(result);
         }
-        public IActionResult AddProduce()
+        public IActionResult AddProduce(Products model)
         {
-            return View();
+            var addProduce = _FarmService.AddProduct(model);
+            var result = _FarmService.GetProducts();
+            return View("Produce", result);
+
         }
 
         public IActionResult UpdateProduce(int id, Products produce)

@@ -10,17 +10,16 @@ namespace FarmStore3.DAL
     {
         IEnumerable<FarmDALModel> SelectAllProduct();
 
-        bool InsertNewProduct(FarmDALModel dalModel);
+        bool AddProduct(FarmDALModel dalModel);
 
         bool UpdateProduct(int ProduceId, Products updatedProduct);
-
     }
 
-    public class ProductStore : IFarmStore
+    public class FarmStore : IFarmStore
     {
         private readonly Database _config;
 
-        public ProductStore(FarmStore3Configuration config)
+        public FarmStore(FarmStore3Configuration config)
         {
             _config = config.Database;
         }
@@ -37,7 +36,7 @@ namespace FarmStore3.DAL
                 return result;
             }
         }
-        public bool InsertNewProduct(FarmDALModel dalModel)
+        public bool AddProduct(FarmDALModel dalModel)
         {
             //ADD PRODUCT
             var sql = $@"Insert INTO Produce (ProduceName) Values (@{nameof(dalModel.ProduceName)})";
@@ -65,7 +64,7 @@ namespace FarmStore3.DAL
             using (var connection = new SqlConnection(_config.ConnectionString))
             {
                 var result = connection.Execute(sql, updatedProduct);
-                return true;
+                return true;            
             }
         }
 

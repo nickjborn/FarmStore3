@@ -12,16 +12,16 @@ namespace FarmStore3.FarmServices
     {
         ProductViewModel GetProducts();
 
-        ProductViewModel AddNewProduct(Products model);
+        ProductViewModel AddProduct(Products model);
 
         ProductViewModel UpdateProduce(int id, Products produce);
     }
 
-    public class ProductService : IFarmService
+    public class FarmService : IFarmService
     {
         private readonly IFarmStore _farmStore;
 
-        public ProductService(IFarmStore farmStore)
+        public FarmService(IFarmStore farmStore)
         {
             _farmStore = farmStore;
         }
@@ -44,11 +44,11 @@ namespace FarmStore3.FarmServices
             return ProductViewModel;
         }
 
-        public ProductViewModel AddNewProduct(Products model)
+        public ProductViewModel AddProduct(Products model)
         {
             var dalModel = new FarmDALModel();
             dalModel.ProduceName = model.ProduceName;
-            _farmStore.InsertNewProduct(dalModel);
+            _farmStore.AddProduct(dalModel);
 
             //MAPPING
             var dalProducts = _farmStore.SelectAllProduct();

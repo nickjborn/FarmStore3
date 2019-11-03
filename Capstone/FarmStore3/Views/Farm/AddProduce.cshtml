@@ -1,7 +1,53 @@
-﻿
+﻿@model FarmStore3.Models.Products
+
 @{
     ViewData["Title"] = "AddProduce";
 }
 
 <h1>AddProduce</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Farm" asp-action="Produce">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <h4>Name</h4>
+                <input asp-for="ProduceName" class="form-control" />
+                <span asp-validation-for="ProduceName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h4>Quantity</h4>
+                <input asp-for="StockQuantity" class="form-control" />
+                <span asp-validation-for="StockQuantity" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h4>Unit Price</h4>
+                <input asp-for="UnitPrice" class="form-control" />
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <h4>In Season</h4>
+                <input asp-for="InSeason" class="form-control" />
+                <span asp-validation-for="InSeason" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<hr />
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
 
