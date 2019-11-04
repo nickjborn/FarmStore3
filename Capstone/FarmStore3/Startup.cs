@@ -34,7 +34,11 @@ namespace FarmStore3
                .AddEnvironmentVariables()
                .Build();
             var appConfig = new FarmStore3Configuration();
-            config.Bind("FarmStoreConfiguration", appConfig);
+            config.Bind("FarmStore3Configuration", appConfig);
+
+            services.AddSingleton<IFarmService, FarmService>();
+            services.AddSingleton<IFarmStore, FarmStore>();
+            services.AddSingleton(appConfig);
 
 
             services.Configure<CookiePolicyOptions>(options =>
