@@ -64,7 +64,7 @@ namespace FarmStore3.DAL
             using (var connection = new SqlConnection(_config.ConnectionString))
             {
                 var result = connection.Execute(sql, updatedProduct);
-                return true;            
+                return true;
             }
         }
 

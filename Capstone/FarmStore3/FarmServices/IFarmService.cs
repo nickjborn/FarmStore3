@@ -3,17 +3,13 @@ using FarmStore3.DAL.Models;
 using FarmStore3.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FarmStore3.FarmServices
 {
     public interface IFarmService
     {
         ProductViewModel GetProducts();
-
-        ProductViewModel AddProduct(Products model);
-
+        ProductViewModel AddProduct(ProductViewModel model);
         ProductViewModel UpdateProduce(int id, Products produce);
     }
 
@@ -44,7 +40,7 @@ namespace FarmStore3.FarmServices
             return ProductViewModel;
         }
 
-        public ProductViewModel AddProduct(Products model)
+        public ProductViewModel AddProduct(ProductViewModel model)
         {
             var dalModel = new FarmDALModel();
             dalModel.ProduceName = model.ProduceName;

@@ -46,8 +46,6 @@ namespace FarmStore3
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -59,6 +57,7 @@ namespace FarmStore3
                 app.UseDeveloperExceptionPage();
             }
             else
+
             {
                 app.UseExceptionHandler("/Home/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.

@@ -12,18 +12,24 @@ namespace FarmStore3.Controllers
         {
             _FarmService = farmService;
         }
+        public IActionResult AddProductView(Products model)
+        {
+            return View(model);
+        }
+
+      
+ 
+        public IActionResult AddProduce(ProductViewModel model)
+        {
+            var addProduce = _FarmService.AddProduct(model);
+            var result = _FarmService.GetProducts();
+            return View("Produce", result);
+        }
 
         public IActionResult Produce()
         {
             var result = _FarmService.GetProducts();
             return View(result);
-        }
-        public IActionResult AddProduce(Products model)
-        {
-            var addProduce = _FarmService.AddProduct(model);
-            var result = _FarmService.GetProducts();
-            return View("Produce", result);
-
         }
 
         public IActionResult UpdateProduce(int id, Products produce)
@@ -32,6 +38,5 @@ namespace FarmStore3.Controllers
             var view = _FarmService.GetProducts();
             return View("Produce", view);
         }
-
     }
 }

@@ -6,26 +6,31 @@
 <h1>Produce</h1>
 
 
+<table>
+    <thead>
+        <tr>
 
+            <td>ProduceID</td>
+            <td>ProduceName</td>
+            <td>StockQuantity</td>
+            <td>UnitPrice</td>
+            <td>InSeason</td>
 
-<div>
-    <table>
-        <thead>
-            <tr></tr>
-        </thead>
-        <tbody>
-            @foreach (var product in Model.Products)
-            {
-                <tr>
-                    <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.ProduceID">@product.ProduceID</a></td>
-                    <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.ProduceName">@product.ProduceName</a></td>
-                    <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.StockQuantity">@product.StockQuantity</a></td>
-                    <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.UnitPrice">@product.UnitPrice</a></td>
-                    <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.InSeason">@product.InSeason</a></td>
+        </tr>
+    </thead>
+    <tbody>
 
-                </tr>
+        @foreach (var product in Model.Products)
+        {
+            <tr>
+                <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.ProduceID">@product.ProduceID</a></td>
+                <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.ProduceName">@product.ProduceName</a></td>
+                <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.StockQuantity">@product.StockQuantity</a></td>
+                <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.UnitPrice">@product.UnitPrice</a></td>
+                <td><a asp-controller="Products" asp-action="ProductDetails" asp-route-id="@product.InSeason">@product.InSeason</a></td>
 
-            }
-        </tbody>
-    </table>
-</div>
+            </tr>
+
+        }
+    </tbody>
+</table>
